@@ -1,0 +1,72 @@
+<mat-toolbar color="primary">
+      <span class="fill-remaining-space"></span>
+      <span>Send Notification through Mail/SMS</span>
+      <span class="fill-remaining-space"></span>
+</mat-toolbar>
+<div *ngIf="loaderService.isLoading | async" class="loader-container">
+      <mat-spinner style="top: 50%; left: 50%;"></mat-spinner>
+</div>
+<!--<form [formGroup]="NotificationForm" class="normal-form">
+      <mat-grid-list cols="2" rowHeight="1:1">
+            <div class="controles-container">
+            <mat-grid-tile >
+                  <mat-form-field>
+                        <input formControlName="studentId" matInput placeholder="Student Id*">
+                        <mat-error *ngIf="NotificationForm.controls['studentId'].errors?.required">This field is required</mat-error>
+                        <mat-error *ngIf="NotificationForm.controls['studentId'].errors?.pattern">This field is required</mat-error>
+                  </mat-form-field>
+                  <mat-form-field>
+                        <input formControlName="message" matInput placeholder="message*">
+                        <mat-error *ngIf="NotificationForm.controls['message'].errors?.required">This field is required</mat-error>
+                  </mat-form-field>
+                  <div class="button-row">
+                        <button mat-raised-button color="primary" type="submit" [disabled]="NotificationForm.invalid" (click)="submitted()">Check</button>
+                  </div>
+            </mat-grid-tile>
+            </div>
+            
+            <div class="controles-container">
+            <mat-grid-tile >
+                  <mat-radio-group formControlName="mailOrSms">
+                        <mat-radio-button value="1">Sms</mat-radio-button>
+                        <mat-radio-button value="2">Email</mat-radio-button>
+                  </mat-radio-group>
+                  <mat-form-field>
+                        <input formControlName="subjectOfMail" matInput placeholder="message*">
+                        <mat-error *ngIf="NotificationForm.controls['subjectOfMail'].errors?.required">This field is required</mat-error>
+                  </mat-form-field>
+            </mat-grid-tile>
+            </div>
+      </mat-grid-list>
+</form>-->
+
+<form [formGroup]="NotificationForm" class="normal-form">
+      <mat-grid-list cols="1" rowHeight="1:0.5">
+         
+            <mat-grid-tile>
+                  <div class="controles-container">
+                        <mat-form-field class="studentId">
+                        <input formControlName="studentId" matInput placeholder="Student Id*">
+                        <mat-error *ngIf="NotificationForm.controls['studentId'].errors?.required">This field is mandatory.</mat-error>
+                        <mat-error *ngIf="NotificationForm.controls['studentId'].errors?.pattern">Student Id must conatin 6 digits</mat-error>
+                        </mat-form-field>
+                        <mat-form-field  class="message">
+                              <input formControlName="message" matInput placeholder="Message*">
+                              <mat-error *ngIf="NotificationForm.controls['message'].errors?.required" >This field is mandatory.</mat-error>
+                        </mat-form-field>
+                        <mat-radio-group formControlName="mailOrSms">
+                              <mat-radio-button value="1">Sms</mat-radio-button>&nbsp;
+                              <mat-radio-button value="2">Email</mat-radio-button>
+                              <mat-error *ngIf="NotificationForm.controls['mailOrSms'].errors?.required">This field is mandatory.</mat-error>
+                        </mat-radio-group>
+                        <mat-form-field *ngIf="NotificationForm.controls['mailOrSms'].value==2"  >
+                              <input formControlName="subjectOfMail" matInput placeholder="enter subject of mail">
+                        </mat-form-field>
+                        
+                        <div class="button-row">
+                              <button mat-raised-button color="primary" type="submit" [disabled]="NotificationForm.invalid" (click)="submitted()">Done</button>
+                        </div>
+                  </div>
+            </mat-grid-tile>
+      </mat-grid-list>
+</form>

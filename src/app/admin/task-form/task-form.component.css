@@ -1,0 +1,56 @@
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+ div.container{
+    margin: 0px 40px;
+}
+.btn-dialog-close{
+    width: 45px;
+    min-width: 0px !important;
+    height: 40px;
+    padding: 0px !important;
+}
+form.normal-form{
+    margin: 10px;
+    
+}
+.add-bottom-padding{
+    padding-bottom: 50px;
+    
+}
+/* radio group */
+mat-radio-group mat-radio-button{
+margin-left: 5px;
+}
+.controles-container{
+    width: 30%;
+    padding: 5%;    
+}
+.controles-container mat-form-field{
+    padding-bottom: 15px;
+}
+
+.button-row button{
+    
+    margin-top: 10px;
+   
+}
+.controles-container > * {
+    width: 100%;
+    }
+
+/* mat-grid-tile {
+    background: rgb(134, 78, 78);
+  } */
+  .errorMessage
+  {
+      margin-top: 5%;
+      margin-left: 25%;
+      font-size: medium;
+  }
+  .fill-remaining-space {
+    /* This fills the remaining space, by using flexbox. 
+       Every toolbar row uses a flexbox row layout. */
+    flex: 1 1 auto;
+  }
+  
+
